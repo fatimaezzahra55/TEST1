@@ -1,0 +1,229 @@
+﻿@{
+    ViewData["Title"] = "Accueil";
+}
+
+<style>
+
+
+    /* .sous-Body{
+                                        background-color: #343a40;
+                                        opacity:0.3;
+                                    } */
+    .body div {
+        text-align: justify-all;
+    }
+
+
+    .content-container p {
+        margin-bottom: 15px;
+    }
+
+    .content-container ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+        .content-container ul li {
+            background-color: #e7e7e7;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+    .h1B {
+        font-family: 'Berlin Sans FB';
+        color: #131227;
+        padding-top: 70px;
+        font-size: 40px;
+        padding-left: 30px;
+    }
+
+
+
+    .r1 {
+        height: 525px;
+        margin-bottom: 50px;
+    }
+
+    .Text {
+        font-family: 'Berlin Sans FB';
+        white-space: normal; /* Allow wrapping */
+        text-align: justify; /* Justify the text */
+        padding-right: 100px;
+        padding-left: 31px;
+    }
+
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    #Accueil {
+        height: 100vh;
+        width: 100%;
+        background: rgb(224,227,255);
+        background: linear-gradient(180deg, rgba(224,227,255,1) 0%, rgba(241,242,255,1) 11%, rgba(244,245,255,1) 24%, rgba(255,255,255,1) 73%);
+        background-size: 100% 100%;
+        animated: color 12s ease-in-out infinite;
+    }
+
+    }
+
+    .margin1 {
+        margin-bottom: 100px;
+    }
+
+    .Btn1 {
+        border-color: #131227;
+        margin-top: 65px !important;
+        margin-left: 150px;
+        border-radius: 20px;
+        padding: 10px;
+        color: black;
+    }
+
+    .Btn2 {
+        border-color: #131227;
+        margin-top: 65px !important;
+        margin-left: 70px;
+        border-radius: 20px;
+        padding: 10px;
+        color: black;
+    }
+
+    .section2 {
+        height: 530px;
+    }
+
+    .Contai div .card {
+        border-color: #DBE9EE;
+        height: 380px !important;
+        padding-top: 25px;
+    }
+
+        .Contai div .card div img {
+            height: 70px;
+            width: auto;
+            margin-bottom: 20px;
+        }
+
+        .Contai div .card .card-body1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .Contai div .card .card-body1 {
+            margin-top: 18px;
+        }
+
+    .carte1:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .carte1 {
+        transform: translateY(-1px);
+        box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+    }
+
+    .Contai div .card .card-body1 p {
+        margin: 11px 25px 0px 25px;
+        white-space: normal; /* Allow wrapping */
+        text-align: justify; /* Justify the text */
+        font-size: 14px;
+    }
+
+    .ulistratorHomePage {
+        width: 550px;
+        height: auto;
+        margin-top: 140px;
+        margin-left: 50px;
+        margin-right: 90px;
+    }
+
+    .text2 {
+        margin-top: 30px;
+        margin-left: 100px;
+    }
+
+</style>
+@using Microsoft.AspNetCore.Identity
+@using userPage.Areas.Identity.Data
+<div class=" pt-5" id="Accueil">
+    <div class="row r1 ">
+
+        <div class="col text2">
+
+            <h5 id="animatedTitle" class="h1B mt-5">Bienvenue dans votre <br />application d'automatisation des livrables</h5>
+            <div class="Text">Bienvenue dans votre espace d'automatisation des documents techniques ! Ici, vous pouvez facilement générer vos documents.</div>
+            <div class="Text">Nous vous encourageons à explorer les différentes sections pour vous familiariser avec les fonctionnalités du site.</div>
+            @if (string.IsNullOrEmpty(User.Identity.Name))
+            {
+                <a href="@Url.Action("Login", "Home")" class="btn Btn1 btn-outline-dark mt-3">Se connecter</a>
+                <a href="#propos" class="btn Btn2 btn-outline-dark mt-3">En Savoir Plus</a>
+            }
+            else
+            {
+                <a href="#propos" class="btn Btn2 btn-outline-dark mt-3">À propos</a>
+            }
+        </div>
+        <div class="col body">
+            <img src="~/images//ulistratorHomePage.jpg" class="ulistratorHomePage" alt="Alternate Text" />
+        </div>
+    </div>
+</div>
+
+<div id="propos" class="">
+    <div class="row section2">
+        <div class="ps-5 ms-2">
+            <h2 class="pt-5 pb-2" style="font-family: 'Berlin Sans FB';">
+                À propos
+            </h2>
+            <div class="container pt-5 ">
+                <div class="row Contai">
+                    <div class="col-md-4 mb-4">
+                        <div class="card carte1 m-2">
+                            <div class="card-body1">
+                                <img src="/images/time.png" alt="Alternate Text" />
+                                <h5 class="card-title">Gain de Temps</h5>
+                                <p class="card-text p-2">Au cœur de notre application se trouve une fonctionnalité clé qui offre un gain de temps considérable en simplifiant le processus de création de documents techniques personnalisés.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card carte1 m-2">
+                            <div class="card-body1">
+                                <img src="/images/duplication.png" alt="Alternate Text" />
+                                <h5 class="card-title">Éviter les Duplications</h5>
+                                <p class="card-text">Notre approche permet d'éviter les duplications de travail en offrant une structure claire et organisée pour la personnalisation des documents, réduisant ainsi les erreurs et les redondances.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card carte1 m-2">
+                            <div class="card-body1">
+                                <img src="/images/security.png" alt="Alternate Text" />
+                                <h5 class="card-title">Processus Sécurisé</h5>
+                                <p class="card-text">Par-dessus tout, notre processus offre un niveau élevé de sécurité, avec des mécanismes de contrôle d'accès et de gestion des données intégrés. Assurant la confidentialité des informations contenues dans les documents.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const title = document.getElementById('animatedTitle');
+        title.classList.add('animate');
+    });
+</script>
